@@ -1,13 +1,13 @@
 <?php
-session_start();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $form_name = $_POST["form_name"];
-    $form_kana = $_POST["form_kana"];
-    $form_email = $_POST["form_email"];
-    $form_phone = $_POST["form_phone"];
-    $select_item = $_POST["select_item"];
-    $form_details = $_POST["form_details"];
-    $form_agree = $_POST["form_agree"];
+  session_start();
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $kana = $_POST["kana"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $selected = $_POST["selected"];
+    $detail = $_POST["detail"];
+    $agree = $_POST["agree"];
     $errorMessage = '';
   }
 ?>
@@ -54,19 +54,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $switch = 0;
       $missingFields = [];
       $unselectedFields = [];
-        if (empty($form_name)) {
+        if (empty($name)) {
           $missingFields[] = 'お名前';
         }
-        if (empty($form_kana)) {
+        if (empty($kana)) {
           $missingFields[] = 'フリガナ';
         }
-        if (empty($form_email)) {
+        if (empty($email)) {
           $missingFields[] = 'メールアドレス';
         }
-        if (empty($form_phone)) {
+        if (empty($phone)) {
           $missingFields[] = '電話番号';
         }
-        if (empty($form_details)) {
+        if (empty($detail)) {
           $missingFields[] = 'お問い合わせ内容';
         }
         if (!empty($missingFields)) {
@@ -74,21 +74,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $errorMessage .= '※以下の必須項目が入力されていません。<br>・' . implode('<br>・', $missingFields). '<br><br>';
         }
 
-        if (empty($select_item)) {
+        if (empty($selected)) {
           $unselectedFields[] = 'お問い合わせ項目';
         }
-        if (empty($form_agree)) {
+        if (empty($agree)) {
           $unselectedFields[] = '個人情報保護方針';
         }
         if (!empty($unselectedFields)) {
           $switch = 1;
           $errorMessage .= '※以下の必須項目が選択されていません。<br>・' . implode('<br>・', $unselectedFields). '<br><br>';
         }
-        if (strpos($form_email, '@') === false) {
+        if (strpos($email, '@') === false) {
           $switch = 1;
           $errorMessage .= '※メールアドレスに@が含まれていません。<br><br>';
         }
-        if (!preg_match("/^([0-9]{2,4}-[0-9]{2,4}-[0-9]{2,4}|[0-9]{10,11})$/", $form_phone)) {
+        if (!preg_match("/^([0-9]{2,4}-[0-9]{2,4}-[0-9]{2,4}|[0-9]{10,11})$/", $phone)) {
           $switch = 1;
           $errorMessage .= '※電話番号は10桁または11桁である必要があります。<br><br>';
         }
@@ -97,36 +97,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     ?>
 
-    <form action=<?php if ($switch === 0){ echo "task8-2.php";} else { echo "task8-1.php";} ?> method="post">
+    <form action=<?php if ($switch === 0){ echo "task9-1.php";} else { echo "task8-1.php";} ?> method="post">
       <div class="contact-form">
         <div class="contacts">
-          <label for="form_name">お名前<span class="required">必須</span></label><input type="text" placeholder="山田太郎" id="form_name" name="form_name" value="<?php echo $form_name ?>">
+          <label for="form_name">お名前<span class="required">必須</span></label><input type="text" placeholder="山田太郎" id="form_name" name="name" value="<?php echo $name ?>">
         </div>
         <div class="contacts">
-          <label for="form_kana">フリガナ<span class="required">必須</span></label><input type="text" placeholder="ヤマダタロウ" id="form_kana" name="form_kana" value="<?php echo $form_kana ?>">
+          <label for="form_kana">フリガナ<span class="required">必須</span></label><input type="text" placeholder="ヤマダタロウ" id="form_kana" name="kana" value="<?php echo $kana ?>">
         </div>
         <div class="contacts">
-          <label for="form_email">メールアドレス<span class="required">必須</span></label><input type="text" placeholder="info@fast-creademy.jp" id="form_email" name="form_email" value="<?php echo $form_email ?>">
+          <label for="form_email">メールアドレス<span class="required">必須</span></label><input type="text" placeholder="info@fast-creademy.jp" id="form_email" name="email" value="<?php echo $email ?>">
         </div>
         <div class="contacts">
-          <label for="form_phone">電話番号<span class="required">必須</span></label><input type="text" placeholder="000-0000-0000" id="form_phone" name="form_phone" value="<?php echo $form_phone ?>">
+          <label for="form_phone">電話番号<span class="required">必須</span></label><input type="text" placeholder="000-0000-0000" id="form_phone" name="phone" value="<?php echo $phone ?>">
         </div>
         <div class="contacts">
           <label for="select_item">お問い合わせ項目<span class="required">必須</span></label>
-          <select name="select_item" id="select_item">
+          <select name="selected" id="select_item">
             <option value="" hidden>選択してください</option>
-            <option value="選択1" <?php if ($select_item === "選択1") {echo "selected";} ?>>選択1</option>
-            <option value="選択2" <?php if ($select_item === "選択2") {echo "selected";} ?>>選択2</option>
-            <option value="選択3" <?php if ($select_item === "選択3") {echo "selected";} ?>>選択3</option>
+            <option value="選択1" <?php if ($selected === "選択1") {echo "selected";} ?>>選択1</option>
+            <option value="選択2" <?php if ($selected === "選択2") {echo "selected";} ?>>選択2</option>
+            <option value="選択3" <?php if ($selected === "選択3") {echo "selected";} ?>>選択3</option>
           </select>
         </div>
         <div class="contacts">
-          <label for="form_details">お問い合わせ内容<span class="required">必須</span></label><textarea rows="6" placeholder="こちらにお問い合わせ内容をご記入ください" id="form_details" name="form_details"><?php echo $form_details ?></textarea>
+          <label for="form_details">お問い合わせ内容<span class="required">必須</span></label><textarea rows="6" placeholder="こちらにお問い合わせ内容をご記入ください" id="form_details" name="detail"><?php echo $detail ?></textarea>
         </div>
         <div class="contacts">
           <label for="form_agree">個人情報保護方針<span class="required">必須</span></label>
           <div class="form_agree">
-            <input type="checkbox" name="form_agree" id="form_agree" value="1" <?php if ($form_agree === "1") {echo 'checked';} ?>>
+            <input type="checkbox" name="agree" id="form_agree" value="1" <?php if ($agree === "1") {echo 'checked';} ?>>
             <a href="#" target="_blank">個人情報保護方針
               <span class="material-symbols-outlined">tab_group
               <style>.material-symbols-outlined {font-size:16px;}

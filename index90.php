@@ -40,7 +40,6 @@
     $stmt->bindParam(4,$work, PDO::PARAM_STR);
     $result = $stmt->execute();
 
-    
     $stmt = $pdo->query("SELECT * FROM syain");
     $results = $stmt->fetchALL();
     // print_r($result);
