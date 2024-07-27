@@ -88,17 +88,16 @@
             $columns .= $key;
             $values .= ':'.$key;
           }
-          var_dump($params);
 
           $pdo->beginTransaction();
           $sql = 'INSERT INTO form ('. $columns .') VALUES('. $values .')';
           $stmt = $pdo->prepare($sql);
           $stmt->execute($params);
-          var_dump($params);
+          // var_dump($params);
     
           $pdo->commit();
           $result = $stmt->fetchALL();
-          var_dump($result);
+          // var_dump($result);
 
         } catch(PDOException $e) {
           echo $e->getMessage() . '<br>';
