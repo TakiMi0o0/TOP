@@ -1,5 +1,4 @@
 <?php
-
 function check_input($id, $name, $age, $work, &$error)
 {
   $error = "";

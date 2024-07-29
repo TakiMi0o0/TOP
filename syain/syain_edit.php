@@ -1,7 +1,10 @@
 <?php
 require_once('common.php');
 
-show_top();
-show_update();
+$id = $_GET["id"];
+$member = $db->getsyain($id);
+show_top("社員情報");
+show_syain($member);
+show_operation();
 show_down(true);
 ?>
