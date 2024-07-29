@@ -38,20 +38,20 @@
     <form action="task8-1.php" method="post">
       <div class="contact-form">
         <div class="contacts">
-          <label for="form_name">お名前<span class="required">必須</span></label><input type="text" placeholder="山田太郎" id="form_name" name="form_name">
+          <label for="form_name">お名前<span class="required">必須</span></label><input type="text" placeholder="山田太郎" id="form_name" name="name">
         </div>
         <div class="contacts">
-          <label for="form_kana">フリガナ<span class="required">必須</span></label><input type="text" placeholder="ヤマダタロウ" id="form_kana" name="form_kana">
+          <label for="form_kana">フリガナ<span class="required">必須</span></label><input type="text" placeholder="ヤマダタロウ" id="form_kana" name="kana">
         </div>
         <div class="contacts">
-          <label for="form_email">メールアドレス<span class="required">必須</span></label><input type="text" placeholder="info@fast-creademy.jp" id="form_email" name="form_email">
+          <label for="form_email">メールアドレス<span class="required">必須</span></label><input type="text" placeholder="info@fast-creademy.jp" id="form_email" name="email">
         </div>
         <div class="contacts">
-          <label for="form_phone">電話番号<span class="required">必須</span></label><input type="text" placeholder="000-0000-0000" id="form_phone" name="form_phone">
+          <label for="form_phone">電話番号<span class="required">必須</span></label><input type="text" placeholder="000-0000-0000" id="form_phone" name="phone">
         </div>
         <div class="contacts">
           <label for="form_item">お問い合わせ項目<span class="required">必須</span></label>
-          <select name="select_item" id="select_item">
+          <select name="selected" id="select_item">
             <option value="" hidden>選択してください</option>
             <option value="選択1">選択1</option>
             <option value="選択2">選択2</option>
@@ -59,12 +59,12 @@
           </select>
         </div>
         <div class="contacts">
-          <label for="form_details">お問い合わせ内容<span class="required">必須</span></label><textarea rows="6" placeholder="こちらにお問い合わせ内容をご記入ください" id="form_details" name="form_details"></textarea>
+          <label for="form_details">お問い合わせ内容<span class="required">必須</span></label><textarea rows="6" placeholder="こちらにお問い合わせ内容をご記入ください" id="form_details" name="detail"></textarea>
         </div>
         <div class="contacts">
           <label for="form_agree">個人情報保護方針<span class="required">必須</span></label>
           <div class="form_agree">
-            <input type="checkbox" name="form_agree" id="form_agree" value="1">
+            <input type="checkbox" name="agree" id="form_agree" value="1">
             <a href="#" target="_blank">個人情報保護方針
               <span class="material-symbols-outlined">tab_group
               <style>.material-symbols-outlined {font-size:16px;}

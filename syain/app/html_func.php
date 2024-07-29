@@ -80,4 +80,10 @@ function show_create()
   show_form("","","","","","create","登録");
 }
 
+function show_update()
+{
+  $error = get_error();
+  show_form("","","","","","update","変更");
+}
+
 ?>

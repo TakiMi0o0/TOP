@@ -10,6 +10,7 @@
     $agree = $_POST["agree"];
     $errorMessage = '';
   }
+  var_dump($_POST["name"]);
 ?>
 
 <!DOCTYPE html>
@@ -102,6 +103,9 @@
         <div class="contacts">
           <label for="form_name">お名前<span class="required">必須</span></label><input type="text" placeholder="山田太郎" id="form_name" name="name" value="<?php echo $name ?>">
         </div>
+        <?php
+        var_dump($name);
+        ?>
         <div class="contacts">
           <label for="form_kana">フリガナ<span class="required">必須</span></label><input type="text" placeholder="ヤマダタロウ" id="form_kana" name="kana" value="<?php echo $kana ?>">
         </div>
