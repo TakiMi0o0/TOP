@@ -83,4 +83,23 @@ class Database
     return false;
   }
 
+  function updatesyain($id, $name, $age, $work, $old_id)
+  {
+    try {
+      if ($this->getsyain($old_id) !=null) {
+        $stmt = $this->pdo->prepare("UPDATE syain SET name = :name, age = :age, work = :work WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':age', $age, PDO::PARAM_INT);
+        $stmt->bindParam(':work', $work, PDO::PARAM_STR);
+        $result = $stmt->execute();
+        return true;
+      }
+    } catch(PDOException $e) {
+    echo $e->getMessage() . '<br>';
+    exit;
+    }
+    return false;
+  }
+
 }

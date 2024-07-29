@@ -36,4 +36,22 @@ if (isset($_POST["status"])) {
     header("Location: index.php");
     exit();
   }
+  if ($_POST["status"] == "update") {
+    if (check_input($id, $name, $age, $work, $error) == false) {
+      header("Location: syain_update.php?error={$error}");
+      exit();
+    }
+    if ($db->idexist($id) == true && $id != $old_id) {
+      $error = "既に使用されているIDです";
+      header("Location: syain_update.php?error={$error}");
+      exit();
+    }
+    if ($db->updatesyain($id, $name, $age, $work, $old_id) == false) {
+      $error = "DBエラー";
+      header("Location: syain_update.php?error={$error}");
+      exit();
+    }
+    header("Location: syain_edit.php?id={$id}");
+    exit();
+  }
 }

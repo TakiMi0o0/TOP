@@ -98,16 +98,22 @@ TABLE1;
       <td>{$member["work"]}</td>
     </tr>
 TABLE2;
-
 }
 
-function show_operation()
+function show_operation($member)
 {
   echo <<<TABLE3
   </table>
-  <a href="syain_update.php">社員情報の更新</a><br>
-  <a href="syain_delete.php">社員情報の削除</a><br>
+  <a href="syain_update.php?id={$member[id]}">社員情報の更新</a><br>
+  <a href="syain_delete.php?id={$member[id]}">社員情報の削除</a><br>
 TABLE3;
+}
+
+function show_update($member)
+{
+  $error = get_error();
+  $old_id = $member[id];
+  show_form($member[id],$member["name"],$member[age],$member["work"],$old_id,"update","更新");
 }
 
 ?>
