@@ -116,4 +116,18 @@ function show_update($member)
   show_form($member[id],$member["name"],$member[age],$member["work"],$old_id,"update","更新");
 }
 
+function show_delete($id, $status)
+{
+  $error = get_error();
+
+  echo <<<DELETE
+  <p class="red">社員情報を削除しますか？</p>
+  <form action="post_data.php" method="post">
+    <input type="hidden" name="id" value="{$id}">
+    <input type="hidden" name="status" value="delete">
+    <input type="submit" value="削除する">
+  </form>
+DELETE;
+}
+
 ?>

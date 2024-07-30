@@ -54,4 +54,13 @@ if (isset($_POST["status"])) {
     header("Location: syain_edit.php?id={$id}");
     exit();
   }
+  if ($_POST["status"] == "delete") {
+    if ($db->deletesyain($id) == false) {
+      $error = "DBエラー";
+      header("Location: syain_edit.php?id={$id}");
+      exit();
+    }
+    header("Location: index.php");
+    exit();
+  }
 }

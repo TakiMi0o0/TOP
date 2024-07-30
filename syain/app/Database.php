@@ -102,4 +102,20 @@ class Database
     return false;
   }
 
+  function deletesyain($id)
+  {
+    try {
+      if ($this->getsyain($id) !=null) {
+        $stmt = $this->pdo->prepare("DELETE FROM syain WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $result = $stmt->execute();
+        return true;
+      }
+    } catch(PDOException $e) {
+    echo $e->getMessage() . '<br>';
+    exit;
+    }
+    return false;
+  }
+
 }
