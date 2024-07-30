@@ -18,7 +18,11 @@ if (isset($_POST["status"])) {
   if (isset($_POST["old_id"])) {
     $old_id = $_POST["old_id"];
   }
+  session_start();
   if ($_POST["status"] == "create") {
+    $_SESSION['name'] = $_POST['name'];
+    $_SESSION['age'] = $_POST['age'];
+    $_SESSION['work'] = $_POST['work'];
     if (check_input($id, $name, $age, $work, $error) == false) {
       header("Location: syain_create.php?error={$error}");
       exit();
@@ -37,6 +41,9 @@ if (isset($_POST["status"])) {
     exit();
   }
   if ($_POST["status"] == "update") {
+    $_SESSION['name'] = $_POST['name'];
+    $_SESSION['age'] = $_POST['age'];
+    $_SESSION['work'] = $_POST['work'];
     if (check_input($id, $name, $age, $work, $error) == false) {
       header("Location: syain_update.php?error={$error}");
       exit();

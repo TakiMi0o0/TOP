@@ -55,6 +55,10 @@ function show_form($id, $name, $age, $work, $old_id, $status, $button)
 {
   $error = "";
   $error = get_error();
+  session_start();
+  if(isset($_SESSION["name"])) $name = $_SESSION["name"];
+  if(isset($_SESSION["age"])) $age = $_SESSION["age"];
+  if(isset($_SESSION["work"])) $work = $_SESSION["work"];
   echo <<<FORM
   <form action="post_data.php" method="post">
     <p>社員番号</p>
@@ -71,6 +75,7 @@ function show_form($id, $name, $age, $work, $old_id, $status, $button)
     <input type="submit" name="button" value="{$button}">
   </form>
 FORM;
+  session_destroy();
 }
 
 function show_create()
