@@ -2,7 +2,7 @@
 function check_input($id, $name, $age, $work, &$error)
 {
   $error = "";
-  if ($id === "" or $name === "") {
+  if ($id === "" or $name === "" or $age === "" or $work === "") {
     $error = "入力されていない値があります";
     return false;
   }

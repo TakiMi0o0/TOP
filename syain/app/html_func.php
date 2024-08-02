@@ -102,13 +102,13 @@ TABLE1;
       <td>{$member[age]}</td>
       <td>{$member["work"]}</td>
     </tr>
+  </table>
 TABLE2;
 }
 
 function show_operation($member)
 {
   echo <<<TABLE3
-  </table>
   <a href="syain_update.php?id={$member[id]}">社員情報の更新</a><br>
   <a href="syain_delete.php?id={$member[id]}">社員情報の削除</a><br>
 TABLE3;
