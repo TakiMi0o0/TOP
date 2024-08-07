@@ -11,7 +11,6 @@ function show_top($heading = "社員一覧")
   <title>社員管理</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
   <h1>{$heading}</h1>
 TOP;
@@ -124,7 +123,6 @@ function show_update($member)
 function show_delete($id, $status)
 {
   $error = get_error();
-
   echo <<<DELETE
   <p class="red">社員情報を削除しますか？</p>
   <form action="post_data.php" method="post">
@@ -134,5 +132,4 @@ function show_delete($id, $status)
   </form>
 DELETE;
 }
-
 ?>

@@ -3,7 +3,6 @@ define('DSN', 'mysql:host=localhost;dbname=company;charset=utf8mb4');
 define('USER', 'root');
 define('PASS', 'root');
 
-
 class Database
 {
   private $pdo;
@@ -116,5 +115,4 @@ class Database
     }
     return false;
   }
-
 }

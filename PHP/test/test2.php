@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>完了ページ | HP</title>
   <meta name="direction" content="">
+  <title>完了ページ | HP</title>
 </head>
 <body>
 <?php

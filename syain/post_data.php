@@ -3,6 +3,7 @@ require_once('common.php');
 // var_dump($_POST);
 // exit;
 if (isset($_POST["status"])) {
+  session_start();
   if (isset($_POST["id"])) {
     $id = $_POST["id"];
   }
@@ -18,7 +19,6 @@ if (isset($_POST["status"])) {
   if (isset($_POST["old_id"])) {
     $old_id = $_POST["old_id"];
   }
-  session_start();
   if ($_POST["status"] == "create") {
     $_SESSION['name'] = $_POST['name'];
     $_SESSION['age'] = $_POST['age'];
